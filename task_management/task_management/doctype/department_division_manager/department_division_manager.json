@@ -1,0 +1,57 @@
+{
+ "actions": [],
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": ["division_name","manager","manager_name","manager_user_id","employee_count"],
+ "fields": [
+  {
+   "fieldname": "division_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Division Name",
+   "reqd": 1,
+   "description": "e.g. Sales North, Sales South, Sales Online"
+  },
+  {
+   "fieldname": "manager",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Division Manager",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "manager_name",
+   "fieldtype": "Data",
+   "fetch_from": "manager.employee_name",
+   "in_list_view": 1,
+   "label": "Manager Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manager_user_id",
+   "fieldtype": "Data",
+   "fetch_from": "manager.user_id",
+   "label": "User ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "employee_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "No. of Employees"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Department Division Manager",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "division_name",
+ "sort_order": "ASC"
+}

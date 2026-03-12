@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "autoname": "TM-DEPT-.#####",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "department","general_manager","general_manager_name",
+  "section_break_1","managers_section",
+  "section_break_2","description","is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department",
+   "options": "Department",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "general_manager",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "General Manager",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "general_manager_name",
+   "fieldtype": "Data",
+   "fetch_from": "general_manager.employee_name",
+   "label": "General Manager Name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "section_break_1",
+   "fieldtype": "Section Break",
+   "label": "Division Managers"
+  },
+  {
+   "fieldname": "managers_section",
+   "fieldtype": "Table",
+   "label": "Division Managers",
+   "options": "Department Division Manager"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active",
+   "default": "1"
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Department Task Manager",
+ "owner": "Administrator",
+ "permissions": [
+  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"Task Manager","share":1,"write":1},
+  {"create":1,"delete":1,"email":1,"export":1,"print":1,"read":1,"report":1,"role":"Administrator","share":1,"write":1}
+ ],
+ "sort_field": "department",
+ "sort_order": "ASC",
+ "title_field": "department",
+ "track_changes": 1
+}

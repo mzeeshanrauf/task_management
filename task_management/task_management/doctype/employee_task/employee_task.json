@@ -1,0 +1,332 @@
+{
+ "actions": [],
+ "autoname": "TM-TASK-.YYYY.-.#####",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "task_title",
+  "category",
+  "priority",
+  "column_break_1",
+  "assigned_to",
+  "assigned_to_name",
+  "assigned_to_department",
+  "column_break_2",
+  "assigned_by",
+  "assigned_by_name",
+  "manager_department",
+  "section_break_dates",
+  "start_date",
+  "due_date",
+  "column_break_dates",
+  "completed_on",
+  "days_to_complete",
+  "allocated_days",
+  "is_overdue",
+  "section_break_status",
+  "status",
+  "completion_percentage",
+  "column_break_status",
+  "on_time",
+  "overdue_days",
+  "section_break_desc",
+  "description",
+  "section_break_updates",
+  "task_updates",
+  "section_break_review",
+  "manager_review",
+  "column_break_review",
+  "quality_score",
+  "section_break_amend",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "task_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Task Title",
+   "reqd": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Task Category"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nCritical",
+   "default": "Medium",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned To",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "assigned_to_name",
+   "fieldtype": "Data",
+   "fetch_from": "assigned_to.employee_name",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assigned_to_department",
+   "fieldtype": "Link",
+   "fetch_from": "assigned_to.department",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_by",
+   "fieldtype": "Link",
+   "label": "Assigned By (Manager)",
+   "options": "Employee",
+   "reqd": 1,
+   "read_only": 1,
+   "description": "Auto-filled from logged-in manager's employee record"
+  },
+  {
+   "fieldname": "assigned_by_name",
+   "fieldtype": "Data",
+   "fetch_from": "assigned_by.employee_name",
+   "label": "Manager Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manager_department",
+   "fieldtype": "Link",
+   "label": "Manager Department",
+   "options": "Department",
+   "read_only": 1,
+   "description": "Auto-filled from manager's department"
+  },
+  {
+   "fieldname": "section_break_dates",
+   "fieldtype": "Section Break",
+   "label": "Dates & Timeline"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1,
+   "default": "Today"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dates",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Date",
+   "label": "Completed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_to_complete",
+   "fieldtype": "Int",
+   "label": "Days Taken to Complete",
+   "read_only": 1
+  },
+  {
+   "fieldname": "allocated_days",
+   "fieldtype": "Int",
+   "label": "Allocated Days (Start to Due)",
+   "read_only": 1,
+   "description": "Auto-calculated: Due Date minus Start Date"
+  },
+  {
+   "fieldname": "is_overdue",
+   "fieldtype": "Check",
+   "label": "Is Overdue",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "section_break_status",
+   "fieldtype": "Section Break",
+   "label": "Status & Progress",
+   "hidden": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nIn Progress\nPending Review\nCompleted\nCancelled\nOverdue",
+   "default": "Open",
+   "reqd": 1
+  },
+  {
+   "fieldname": "completion_percentage",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Progress %",
+   "default": "0"
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "on_time",
+   "fieldtype": "Check",
+   "label": "Completed On Time",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "overdue_days",
+   "fieldtype": "Int",
+   "label": "Overdue by (Days)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_desc",
+   "fieldtype": "Section Break",
+   "label": "Task Details"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Task Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_updates",
+   "fieldtype": "Section Break",
+   "label": "Progress Updates (by Employee)"
+  },
+  {
+   "fieldname": "task_updates",
+   "fieldtype": "Table",
+   "label": "Task Updates",
+   "options": "Task Update",
+   "cannot_add_rows": 1,
+   "cannot_delete_rows": 1,
+   "read_only": 0
+  },
+  {
+   "fieldname": "section_break_review",
+   "fieldtype": "Section Break",
+   "label": "Manager Review",
+   "hidden": 1
+  },
+  {
+   "fieldname": "manager_review",
+   "fieldtype": "Text Editor",
+   "label": "Manager Review Comments"
+  },
+  {
+   "fieldname": "column_break_review",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quality_score",
+   "fieldtype": "Select",
+   "label": "Quality Score (by Manager)",
+   "options": "\n1 - Poor\n2 - Below Average\n3 - Average\n4 - Good\n5 - Excellent"
+  },
+  {
+   "fieldname": "section_break_amend",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Employee Task",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Employee Task",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "Task General Manager",
+   "permlevel": 0,
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "email": 1,
+   "print": 1,
+   "export": 1,
+   "report": 1,
+   "share": 1
+  },
+  {
+   "role": "Task Manager",
+   "permlevel": 0,
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "delete": 0,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "email": 1,
+   "print": 1,
+   "export": 1,
+   "report": 1,
+   "share": 1
+  },
+  {
+   "role": "Task Employee",
+   "permlevel": 0,
+   "create": 0,
+   "read": 1,
+   "write": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "email": 1,
+   "print": 1,
+   "export": 1,
+   "report": 1,
+   "share": 0
+  }
+ ],
+ "sort_field": "due_date",
+ "sort_order": "ASC",
+ "title_field": "task_title",
+ "track_changes": 1,
+ "is_submittable": 1
+}

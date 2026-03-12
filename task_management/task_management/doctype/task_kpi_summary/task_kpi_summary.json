@@ -1,0 +1,241 @@
+{
+ "actions": [],
+ "autoname": "TM-KPI-.YYYY.-.#####",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "period",
+   "fieldtype": "Data",
+   "label": "Period (YYYY-MM)",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_sales_dept",
+   "fieldtype": "Check",
+   "label": "Sales Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_stats",
+   "fieldtype": "Section Break",
+   "label": "Task Statistics"
+  },
+  {
+   "fieldname": "total_tasks",
+   "fieldtype": "Int",
+   "label": "Total Tasks",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "completed_tasks",
+   "fieldtype": "Int",
+   "label": "Completed",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "on_time_tasks",
+   "fieldtype": "Int",
+   "label": "On Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overdue_tasks",
+   "fieldtype": "Int",
+   "label": "Overdue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completion_rate",
+   "fieldtype": "Percent",
+   "label": "Completion Rate %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "on_time_rate",
+   "fieldtype": "Percent",
+   "label": "On-Time Rate %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_task_kpi",
+   "fieldtype": "Section Break",
+   "label": "Task KPI Score"
+  },
+  {
+   "fieldname": "avg_quality_rating",
+   "fieldtype": "Float",
+   "label": "Avg Quality Rating (1-5)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_score_100",
+   "fieldtype": "Float",
+   "label": "Quality Score (0-100)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_tkpi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "task_kpi_score",
+   "fieldtype": "Float",
+   "label": "Task KPI Score (0-100)",
+   "read_only": 1,
+   "bold": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "task_kpi_grade",
+   "fieldtype": "Data",
+   "label": "Task KPI Grade",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "task_kpi_rating",
+   "fieldtype": "Data",
+   "label": "Task KPI Rating",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_sales",
+   "fieldtype": "Section Break",
+   "label": "Sales KPI Score",
+   "depends_on": "eval:doc.is_sales_dept==1"
+  },
+  {
+   "fieldname": "sales_target",
+   "fieldtype": "Currency",
+   "label": "Sales Target",
+   "read_only": 1
+  },
+  {
+   "fieldname": "actual_sales",
+   "fieldtype": "Currency",
+   "label": "Actual Sales (from SO)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_achievement",
+   "fieldtype": "Percent",
+   "label": "Target Achievement %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sales",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_kpi_score",
+   "fieldtype": "Float",
+   "label": "Sales KPI Score (0-100)",
+   "read_only": 1,
+   "bold": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sales_kpi_grade",
+   "fieldtype": "Data",
+   "label": "Sales KPI Grade",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sales_kpi_rating",
+   "fieldtype": "Data",
+   "label": "Sales KPI Rating",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_notes",
+   "fieldtype": "Section Break",
+   "label": "Manager Notes"
+  },
+  {
+   "fieldname": "manager_notes",
+   "fieldtype": "Text Editor",
+   "label": "Manager Notes"
+  },
+  {
+   "fieldname": "generated_on",
+   "fieldtype": "Datetime",
+   "label": "Generated On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kpi_score",
+   "fieldtype": "Float",
+   "label": "KPI Score (legacy)",
+   "hidden": 1
+  }
+ ],
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Task KPI Summary",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Task Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Task Employee",
+   "share": 1
+  }
+ ],
+ "sort_field": "period",
+ "sort_order": "DESC",
+ "title_field": "employee_name",
+ "track_changes": 0
+}
