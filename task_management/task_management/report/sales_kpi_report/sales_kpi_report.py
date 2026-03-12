@@ -21,24 +21,7 @@ def get_rating(score):
     return "Unsatisfactory"
 
 
-def resolve_date_range(filters):
-    ft = filters.get("filter_type", "Date Range")
-    if ft == "Year":
-        year = int(filters.get("year") or getdate(today()).year)
-        return f"{year}-01-01", f"{year}-12-31"
-    if ft == "Quarter":
-        year = int(filters.get("year") or getdate(today()).year)
-        q = filters.get("quarter", "Q1 (Jan-Mar)")
-        quarters = {
-            "Q1 (Jan-Mar)": (f"{year}-01-01", f"{year}-03-31"),
-            "Q2 (Apr-Jun)": (f"{year}-04-01", f"{year}-06-30"),
-            "Q3 (Jul-Sep)": (f"{year}-07-01", f"{year}-09-30"),
-            "Q4 (Oct-Dec)": (f"{year}-10-01", f"{year}-12-31"),
-        }
-        return quarters.get(q, (f"{year}-01-01", f"{year}-03-31"))
-    from_date = filters.get("from_date") or f"{getdate(today()).year}-01-01"
-    to_date   = filters.get("to_date")   or today()
-    return str(from_date), str(to_date)
+
 
 
 def get_months_in_range(from_date, to_date):
@@ -86,7 +69,8 @@ def get_period_target(annual_target, distribution_id, from_date, to_date):
 
 def execute(filters=None):
     filters   = filters or {}
-    from_date, to_date = resolve_date_range(filters)
+    from_date = str(filters.get("from_date") or f"{getdate(today()).year}-01-01")
+    to_date   = str(filters.get("to_date")   or today())
     columns   = get_columns()
     data      = get_data(filters, from_date, to_date)
     chart     = get_chart(data)
@@ -114,13 +98,7 @@ def get_columns():
 
 
 def get_data(filters, from_date, to_date):
-    ft = filters.get("filter_type", "Date Range")
-    if ft == "Year":
-        period_label = str(filters.get("year") or getdate(today()).year)
-    elif ft == "Quarter":
-        period_label = f"{filters.get('quarter','Q1')} {filters.get('year', getdate(today()).year)}"
-    else:
-        period_label = f"{from_date} → {to_date}"
+    period_label = f"{from_date} → {to_date}"
 
     # Fiscal year for target lookup
     fy_row = frappe.db.sql("""
