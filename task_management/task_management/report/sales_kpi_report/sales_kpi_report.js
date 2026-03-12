@@ -1,46 +1,18 @@
 frappe.query_reports["Sales KPI Report"] = {
     filters: [
         {
-            fieldname: "filter_type",
-            label: __("Filter By"),
-            fieldtype: "Select",
-            options: "Date Range\nQuarter\nYear",
-            default: "Date Range",
-            on_change: function() {
-                const ft = frappe.query_report.get_filter_value("filter_type");
-                // Date Range — show from/to, hide quarter/year
-                frappe.query_report.toggle_filter_display("from_date", ft === "Date Range");
-                frappe.query_report.toggle_filter_display("to_date",   ft === "Date Range");
-                // Quarter — show quarter + year, hide from/to
-                frappe.query_report.toggle_filter_display("quarter",   ft === "Quarter");
-                frappe.query_report.toggle_filter_display("year",      ft === "Quarter" || ft === "Year");
-            }
-        },
-        {
             fieldname: "from_date",
             label: __("From Date"),
             fieldtype: "Date",
             default: frappe.datetime.year_start(),
+            reqd: 1,
         },
         {
             fieldname: "to_date",
             label: __("To Date"),
             fieldtype: "Date",
             default: frappe.datetime.get_today(),
-        },
-        {
-            fieldname: "quarter",
-            label: __("Quarter"),
-            fieldtype: "Select",
-            options: "\nQ1 (Jan-Mar)\nQ2 (Apr-Jun)\nQ3 (Jul-Sep)\nQ4 (Oct-Dec)",
-            hidden: 1,
-        },
-        {
-            fieldname: "year",
-            label: __("Year"),
-            fieldtype: "Int",
-            default: new Date().getFullYear(),
-            hidden: 1,
+            reqd: 1,
         },
         {
             fieldname: "department",
