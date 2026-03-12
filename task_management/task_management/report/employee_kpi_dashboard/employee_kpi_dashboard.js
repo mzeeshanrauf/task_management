@@ -1,60 +1,18 @@
 frappe.query_reports["Employee KPI Dashboard"] = {
     filters: [
         {
-            fieldname: "filter_type",
-            label: __("Filter By"),
-            fieldtype: "Select",
-            options: "Date Range\nQuarter\nYear\nMonth",
-            default: "Date Range",
-            on_change: function() {
-                const ft = frappe.query_report.get_filter_value("filter_type");
-                frappe.query_report.toggle_filter_display("from_date", ft === "Date Range");
-                frappe.query_report.toggle_filter_display("to_date",   ft === "Date Range");
-                frappe.query_report.toggle_filter_display("quarter",   ft === "Quarter");
-                frappe.query_report.toggle_filter_display("year",      ft === "Quarter" || ft === "Year");
-                frappe.query_report.toggle_filter_display("month",     ft === "Month");
-                frappe.query_report.toggle_filter_display("month_year",ft === "Month");
-            }
-        },
-        {
             fieldname: "from_date",
             label: __("From Date"),
             fieldtype: "Date",
             default: frappe.datetime.add_months(frappe.datetime.get_today(), -1),
+            reqd: 1,
         },
         {
             fieldname: "to_date",
             label: __("To Date"),
             fieldtype: "Date",
             default: frappe.datetime.get_today(),
-        },
-        {
-            fieldname: "quarter",
-            label: __("Quarter"),
-            fieldtype: "Select",
-            options: "\nQ1 (Jan-Mar)\nQ2 (Apr-Jun)\nQ3 (Jul-Sep)\nQ4 (Oct-Dec)",
-            hidden: 1,
-        },
-        {
-            fieldname: "year",
-            label: __("Year"),
-            fieldtype: "Int",
-            default: new Date().getFullYear(),
-            hidden: 1,
-        },
-        {
-            fieldname: "month",
-            label: __("Month"),
-            fieldtype: "Select",
-            options: "\nJanuary\nFebruary\nMarch\nApril\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNovember\nDecember",
-            hidden: 1,
-        },
-        {
-            fieldname: "month_year",
-            label: __("Year"),
-            fieldtype: "Int",
-            default: new Date().getFullYear(),
-            hidden: 1,
+            reqd: 1,
         },
         {
             fieldname: "employee",
@@ -87,7 +45,10 @@ frappe.query_reports["Employee KPI Dashboard"] = {
         if (column.fieldname === "sales_kpi_score" && !data.is_sales_dept) {
             return `<span style="color:#aaa">—</span>`;
         }
-        if (column.fieldname === "target_achievement" && !data.is_sales_dept) {
+        if (column.fieldname === "period_achievement" && !data.is_sales_dept) {
+            return `<span style="color:#aaa">—</span>`;
+        }
+        if (column.fieldname === "overall_achievement" && !data.is_sales_dept) {
             return `<span style="color:#aaa">—</span>`;
         }
         return value;
