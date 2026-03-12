@@ -2,45 +2,13 @@ import frappe
 from frappe import _
 from frappe.utils import getdate, today
 
-MONTHS = {
-    "January":1,"February":2,"March":3,"April":4,"May":5,"June":6,
-    "July":7,"August":8,"September":9,"October":10,"November":11,"December":12
-}
-MONTH_DAYS = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31}
 
-
-def resolve_date_range(filters):
-    ft = filters.get("filter_type", "Date Range")
-
-    if ft == "Year":
-        year = int(filters.get("year") or getdate(today()).year)
-        return f"{year}-01-01", f"{year}-12-31"
-
-    if ft == "Quarter":
-        year = int(filters.get("year") or getdate(today()).year)
-        q    = filters.get("quarter", "Q1 (Jan-Mar)")
-        quarters = {
-            "Q1 (Jan-Mar)": (f"{year}-01-01", f"{year}-03-31"),
-            "Q2 (Apr-Jun)": (f"{year}-04-01", f"{year}-06-30"),
-            "Q3 (Jul-Sep)": (f"{year}-07-01", f"{year}-09-30"),
-            "Q4 (Oct-Dec)": (f"{year}-10-01", f"{year}-12-31"),
-        }
-        return quarters.get(q, (f"{year}-01-01", f"{year}-03-31"))
-
-    if ft == "Month":
-        year  = int(filters.get("month_year") or getdate(today()).year)
-        month = MONTHS.get(filters.get("month", "January"), 1)
-        days  = MONTH_DAYS.get(month, 30)
-        return f"{year}-{month:02d}-01", f"{year}-{month:02d}-{days:02d}"
-
-    from_date = filters.get("from_date") or frappe.utils.add_months(today(), -1)
-    to_date   = filters.get("to_date")   or today()
-    return str(from_date), str(to_date)
 
 
 def execute(filters=None):
     filters = filters or {}
-    from_date, to_date = resolve_date_range(filters)
+    from_date = str(filters.get("from_date") or frappe.utils.add_months(today(), -1))
+    to_date   = str(filters.get("to_date")   or today())
     columns  = get_columns()
     data     = get_data(filters, from_date, to_date)
     chart    = get_chart(data)
