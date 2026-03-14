@@ -252,53 +252,8 @@ frappe.ui.form.on('Employee Task', {
                         const taskColor  = taskScore >= 90 ? '#2e7d32' : taskScore >= 75 ? '#1565C0'
                                          : taskScore >= 60 ? '#f57c00' : '#c62828';
 
-                        // Sales KPI section (only for sales dept)
-                        let salesSection = '';
-                        if (d.is_sales) {
-                            const sScore = d.sales_kpi_score || 0;
-                            const sColor = sScore >= 90 ? '#2e7d32' : sScore >= 75 ? '#1565C0'
-                                         : sScore >= 60 ? '#f57c00' : '#c62828';
-                            salesSection = `
-                            <h5 style="margin:16px 0 8px;color:#ff6f00">🎯 Sales KPI</h5>
-                            <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:10px">
-                                <thead><tr style="background:#fff8e1">
-                                    <th style="padding:8px;text-align:left">Metric</th>
-                                    <th style="padding:8px;text-align:center">Value</th>
-                                    <th style="padding:8px;text-align:center">KPI Score</th>
-                                </tr></thead>
-                                <tbody>
-                                    <tr>
-                                        <td style="padding:8px">Sales Target (Period)</td>
-                                        <td style="text-align:center">${frappe.format(d.sales_target, {fieldtype:'Currency'})}</td>
-                                        <td style="text-align:center" rowspan="3" style="vertical-align:middle">
-                                            <span style="font-size:28px;font-weight:700;color:${sColor}">${sScore.toFixed(1)}</span>
-                                        </td>
-                                    </tr>
-                                    <tr style="background:#fafafa">
-                                        <td style="padding:8px">Actual Sales (submitted SOs)</td>
-                                        <td style="text-align:center">${frappe.format(d.actual_sales, {fieldtype:'Currency'})}</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:8px">Achievement %</td>
-                                        <td style="text-align:center"><b>${(d.target_achievement||0).toFixed(1)}%</b></td>
-                                    </tr>
-                                </tbody>
-                                <tfoot><tr style="border-top:2px solid #ffe082">
-                                    <td colspan="2" style="padding:8px;font-weight:700">Sales KPI Score (= Achievement %)</td>
-                                    <td style="padding:8px;text-align:center;font-size:20px;font-weight:700;color:${sColor}">${sScore.toFixed(1)}</td>
-                                </tr></tfoot>
-                            </table>
-                            <div style="text-align:center;margin-bottom:12px">
-                                <span style="background:${sColor};color:#fff;padding:4px 18px;
-                                    border-radius:14px;font-weight:600;font-size:13px">
-                                    Sales: ${d.sales_kpi_grade} — ${d.sales_kpi_rating}</span>
-                            </div>`;
-                        }
-
                         frappe.msgprint(`
-                        <h4 style="margin-bottom:12px">${frm.doc.assigned_to_name} — KPI Scorecard
-                            ${d.is_sales ? '<span style="background:#ff6f00;color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:8px">Sales Team</span>' : ''}
-                        </h4>
+                        <h4 style="margin-bottom:12px">${frm.doc.assigned_to_name} — KPI Scorecard</h4>
                         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px">
                             ${card('Total Tasks', d.total_tasks, '#3b5bdb')}
                             ${card('Open', d.open_tasks, '#1565C0')}
@@ -347,7 +302,6 @@ frappe.ui.form.on('Employee Task', {
                                 Task: ${taskGrade} — ${taskRating}</span>
                         </div>
 
-                        ${salesSection}
                         `, __('KPI Dashboard'));
                     }
                 });
