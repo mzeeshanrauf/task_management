@@ -1,0 +1,16 @@
+{
+ "add_total_row": 1,
+ "creation": "2024-01-01 00:00:00.000000",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Task Performance Report",
+ "owner": "Administrator",
+ "ref_doctype": "Employee Task",
+ "report_type": "Script Report",
+ "roles": [{"role": "Task Manager"}, {"role": "Task Employee"}]
+}

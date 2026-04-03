@@ -1,0 +1,148 @@
+{
+ "charts": [],
+ "content": "[{\"id\": \"section_01\", \"type\": \"header\", \"data\": {\"text\": \"<b class=\\\"h4\\\">Task Management</b>\", \"col\": 12}}, {\"id\": \"section_dash\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Task Performance Dashboard\", \"col\": 3}}, {\"id\": \"section_02\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee Task\", \"col\": 3}}, {\"id\": \"section_03\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Task KPI Summary\", \"col\": 3}}, {\"id\": \"section_04\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Task Performance Report\", \"col\": 3}}, {\"id\": \"section_05\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee KPI Dashboard\", \"col\": 3}}]",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "Workspace",
+ "hide_custom": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Task Management",
+ "links": [
+  {
+   "label": "Task Performance Dashboard",
+   "link_count": 0,
+   "link_to": "Task Performance Dashboard",
+   "link_type": "Report",
+   "onboard_present": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "label": "Employee Task",
+   "link_count": 0,
+   "link_to": "Employee Task",
+   "link_type": "Doctype",
+   "onboard_present": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "label": "Task KPI Summary",
+   "link_count": 0,
+   "link_to": "Task KPI Summary",
+   "link_type": "Doctype",
+   "onboard_present": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "label": "Task Performance Report",
+   "link_count": 0,
+   "link_to": "Task Performance Report",
+   "link_type": "Report",
+   "onboard_present": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "label": "Employee KPI Dashboard",
+   "link_count": 0,
+   "link_to": "Employee KPI Dashboard",
+   "link_type": "Report",
+   "onboard_present": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "label": "Overdue Tasks",
+   "link_count": 0,
+   "link_to": "Overdue Tasks Report",
+   "link_type": "Report",
+   "onboard_present": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "label": "Task Category",
+   "link_count": 0,
+   "link_to": "Task Category",
+   "link_type": "Doctype",
+   "onboard_present": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "label": "Department Task Manager",
+   "link_count": 0,
+   "link_to": "Department Task Manager",
+   "link_type": "Doctype",
+   "onboard_present": 0,
+   "only_for": "",
+   "type": "Link"
+  },
+  {
+   "label": "Sales KPI Report",
+   "type": "Report",
+   "report_name": "Sales KPI Report",
+   "is_query_report": 1
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Sales Cumulative Report",
+   "link_count": 0,
+   "link_to": "Sales Cumulative Report",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Task Management",
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 99,
+ "shortcuts": [
+  {
+   "label": "Task Performance Dashboard",
+   "link_to": "Task Performance Dashboard",
+   "type": "Report",
+   "color": "#3b5bdb"
+  },
+  {
+   "label": "Employee Task",
+   "link_to": "Employee Task",
+   "type": "DocType"
+  },
+  {
+   "label": "Task KPI Summary",
+   "link_to": "Task KPI Summary",
+   "type": "DocType"
+  },
+  {
+   "label": "Task Performance Report",
+   "link_to": "Task Performance Report",
+   "type": "Report"
+  },
+  {
+   "label": "Employee KPI Dashboard",
+   "link_to": "Employee KPI Dashboard",
+   "type": "Report"
+  },
+  {
+   "label": "Overdue Tasks",
+   "link_to": "Overdue Tasks Report",
+   "type": "Report"
+  },
+  {
+   "label": "Task Category",
+   "link_to": "Task Category",
+   "type": "DocType"
+  }
+ ]
+}

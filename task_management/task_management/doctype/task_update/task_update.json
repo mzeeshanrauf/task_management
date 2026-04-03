@@ -1,0 +1,25 @@
+{
+ "actions": [],
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": ["update_date", "update_time", "updated_by", "percentage_at_update", "update_text"],
+ "fields": [
+  {"fieldname": "update_date", "fieldtype": "Date", "in_list_view": 1, "label": "Date", "reqd": 1, "default": "Today", "read_only": 1},
+  {"fieldname": "update_time", "fieldtype": "Data", "in_list_view": 1, "label": "Time", "read_only": 1},
+  {"fieldname": "updated_by", "fieldtype": "Link", "in_list_view": 1, "label": "Updated By", "options": "User", "read_only": 1},
+  {"fieldname": "percentage_at_update", "fieldtype": "Percent", "in_list_view": 1, "label": "Progress % at Update"},
+  {"fieldname": "update_text", "fieldtype": "Text Editor", "label": "Update / Note", "reqd": 1}
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Task Update",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "update_date",
+ "sort_order": "DESC"
+}

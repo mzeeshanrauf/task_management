@@ -1,0 +1,13 @@
+[
+  {
+    "doctype": "Custom Field",
+    "dt": "Department",
+    "fieldname": "is_sales_department",
+    "fieldtype": "Check",
+    "label": "Is Sales Department (KPI)",
+    "description": "Enable to use Sales KPI formula (Target Achievement included) for all employees in this department.",
+    "insert_after": "disabled",
+    "module": "Task Management",
+    "is_system_generated": 0
+  }
+]

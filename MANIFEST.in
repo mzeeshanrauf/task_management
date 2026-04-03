@@ -1,0 +1,2 @@
+include MANIFEST.in
+recursive-include task_management *.json *.js *.css *.html *.py

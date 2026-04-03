@@ -1,0 +1,23 @@
+/* Task Management Module Styles */
+
+.task-priority-critical { color: #c62828; font-weight: 700; }
+.task-priority-high     { color: #e64a19; font-weight: 600; }
+.task-priority-medium   { color: #1976d2; }
+.task-priority-low      { color: #616161; }
+
+.task-status-completed  { color: #2e7d32; }
+.task-status-overdue    { color: #c62828; }
+.task-status-progress   { color: #0277bd; }
+
+.kpi-grade-a  { background: #e8f5e9; color: #1b5e20; border-radius: 4px; padding: 2px 8px; }
+.kpi-grade-b  { background: #e3f2fd; color: #0d47a1; border-radius: 4px; padding: 2px 8px; }
+.kpi-grade-c  { background: #fff8e1; color: #f57f17; border-radius: 4px; padding: 2px 8px; }
+.kpi-grade-f  { background: #ffebee; color: #b71c1c; border-radius: 4px; padding: 2px 8px; }
+
+.kpi-card {
+    border-left: 4px solid var(--primary);
+    padding: 12px 16px;
+    background: #f9f9f9;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
